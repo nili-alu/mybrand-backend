@@ -19,20 +19,25 @@ mongoose
   )
   .catch((err) => console.log(err));
 
-
-
+//bpdy parser
   const bodyParser= require('body-parser');
 app.use(bodyParser.json());
 
 
-
+//blogs
 const postsRouter= require('./routes/blogRouter');
 
 app.use('/blogs', postsRouter);
 
+//comment 
 const comment = require('./routes/comment');
 
 app.use('/comments', comment);
 
+//contact me page
 const contact = require('./routes/contact-me');
 app.use('/contact-me', contact);
+
+//users
+const user = require('./routes/User');
+app.use('/User',user);
