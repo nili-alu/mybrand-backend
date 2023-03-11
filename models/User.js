@@ -1,10 +1,13 @@
+
 // user model
+// import mongoose from "mongoose";
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt')
+const { Schema } = mongoose;
+// import bcrypt from "bcrypt-nodejs";
 
 // user schema
-const UserSchema = mongoose.Schema({
-
+var UserSchema = new Schema({
   email: {
     type: String,
     required: [true, "Email is required"],
@@ -16,18 +19,18 @@ const UserSchema = mongoose.Schema({
     required: [true, "Password is required"],
     minlength: [3, "Password should have at least 8 characters"],
   },
-  confirmpassword: {
-    type: String,
-    unique: true,
-    required: [true, "confim password is required"],
-  },
+  // confirmpassword: {
+  //   type: String,
+  //   unique: true,
+  //   required: [true, "confim password is required"],
+  // },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-// hash the password before the user is saved
+// // hash the password before the user is saved
 // UserSchema.pre("save", function (next) {
 //   var user = this;
 
@@ -44,25 +47,7 @@ const UserSchema = mongoose.Schema({
 //   });
 // });
 
-UserSchema.pre = async(req,res, next) => {
-  var user =this;
-
-    // hash the password only if the password has been changed or user is new
-  if (!user.isModified("password")) return next();
-
-  // generate the hash
-  bcrypt.hash(user.password, null, null, function (err, hash) {
-    if (err) return next(err);
-
-    // change the password to the hashed version
-    user.password = hash;
-    next();
-  });
-
-
-};
-
-//  method to compare a given password with the database hash 
+// method to compare a given password with the database hash
 UserSchema.methods.comparePassword = function (password) {
   var user = this;
 
