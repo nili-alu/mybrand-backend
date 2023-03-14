@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 
 
 // user schema
-var UserSchema = new Schema({
+var loginSchema = new Schema({
   email: {
     type: String,
     required: [true, "Email is required"],
@@ -26,12 +26,6 @@ var UserSchema = new Schema({
   },
 });
 
-// method to compare a given password with the database hash
-UserSchema.methods.comparePassword = function (password) {
-  var user = this;
-
-  return bcrypt.compareSync(password, user.password);
-};
 
 // return the model
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("User", loginSchema);

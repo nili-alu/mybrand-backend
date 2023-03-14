@@ -1,5 +1,6 @@
 // const User = require('../models/User');
 const User =require("../models/User");
+// const loggedUsers = require("../models/loggedUsers");
 // const generateToken = require("../utils/generateToken");
 const bcrypt =require("bcrypt");
 
@@ -17,7 +18,9 @@ exports.login = async (req, res) => {
     if (!passwordMatches) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
-    // If the email and password are valid, generate a JWT token and send it in the response
+    //saving logged users
+    // user = await loggedUsers.create({email, password:hashedPassword});
+
     res.status(200).json({"status":"succuss", "code":200, "message":"login successful"});
   } catch (error) {
     console.error(error);

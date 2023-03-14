@@ -2,16 +2,6 @@
 const User =require("../models/User");
 const bcrypt = require("bcrypt");
 
-// Get a list of all users
-exports.getUsers = async function (req, res) {
-  try {
-    const users = await User.find();
-    res.json(users);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Server error" });
-  }
-};
 // Create a new user
 exports.createUser = async function (req, res) {
   const {email, password} = req.body;
@@ -33,6 +23,18 @@ exports.createUser = async function (req, res) {
     res.status(500).json({ error: "Server error" });
   }
 };
+
+// Get a list of all users
+exports.getUsers = async function (req, res) {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
 
 // Get a user by ID
 exports.getUserById = async function (req, res) {
