@@ -8,7 +8,6 @@ import {
   deleteOneBlog,
   UpdateOneBlog,
 } from "../controllers/blogController.js";
-// const authenticate = require('../middlewares/authenticate');
 
 //get all post
 router.get("/blogs", allBlog);
