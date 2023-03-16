@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 
-const contactSchema= mongoose.Schema({
+const contactSchema= Schema({
 
     email: {
         type: String,
@@ -24,4 +24,4 @@ const contactSchema= mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('contact-me',contactSchema)
+export default model('contact-me',contactSchema)

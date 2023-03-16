@@ -1,0 +1,43 @@
+{
+  "name": "mybrand-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node  ./src/server"
+  },
+  "keywords": [],
+  "author": "Lievin Niyoyandika",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/supertest": "^2.0.12",
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express-validator": "^6.15.0",
+    "jest": "^29.5.0",
+    "jsonwebtoken": "^9.0.0",
+    "lowdb": "^5.1.0",
+    "nanoid": "^4.0.1",
+    "node-fetch": "^2.6.9",
+    "nodemon": "^2.0.21",
+    "supertest": "^6.3.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2",
+    "ts-jest": "^29.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "description": ""
+}

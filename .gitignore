@@ -1,4 +1,4 @@
-utils
-config
-swagger.json
-node_modules
+utils/
+config/
+node_modules/
+models/loggedUsers.js
