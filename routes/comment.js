@@ -23,9 +23,4 @@ router.get('/:postId', Post_controller.getOneComment);
  //delete
  router.delete('/:postId', Post_controller.deleteOneComment);
 
-
-//  //update a post
-//  router.patch('/:postId',Post_controller.UpdateOnePost);
- 
-
 module.exports = router;
