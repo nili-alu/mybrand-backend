@@ -1,6 +1,7 @@
-// import User from "../models/User";
 
-const User = require('../models/User')
+const User =require("../models/User");
+const bcrypt = require("bcrypt");
+
 // Get a list of all users
 exports.getUsers = async function (req, res) {
   try {
@@ -13,11 +14,20 @@ exports.getUsers = async function (req, res) {
 };
 // Create a new user
 exports.createUser = async function (req, res) {
-  try {
-    const user = new User(req.body);
+  const {email, password} = req.body;
 
-    await user.save();
-    res.json(user);
+  
+  try {
+    if (!(email, password)) {
+      res.status(400).json({error: 'required field'});
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await User.create({email, password:hashedPassword});
+    res.status(200).json({"status":"succuss", "code":200, "message":"user created successful"});
+
+    // await user.save();
+    // res.json(user);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });
