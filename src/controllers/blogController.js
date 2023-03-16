@@ -1,57 +1,58 @@
-const Post = require("../models/Blog");
-const fs = require("fs");
-const { title } = require("process");
+import Blog from "../models/Blog.js";
+// const { title } = require("process");
+// import Joi from "joi";
 
 //get all post
-exports.allPost = async (req, res) => {
+export async function allBlog(req, res) {
   try {
-    const posts = await Post.find();
+    const posts = await Blog.find();
     res.json(posts);
   } catch (err) {
     res.status(404).json({ err: err, status: "404" });
   }
-};
+}
 
 // add a post
-exports.addPost = async (req, res) => {
+export async function addBlog(req, res) {
   try {
-    const post = new Post({
+    const post = new Blog({
       title: req.body.title,
       description: req.body.description,
       image: req.body.image,
     });
-    const savedPost = await post.save();
-    res.status(200).json(savedPost);
+    const savedBlog = await post.save();
+    res.status(200).json(savedBlog);
   } catch (error) {
     res.status(500).json({ err: error, status: "500" });
   }
-};
+}
 
-exports.getOne = async (req, res) => {
+
+export async function getOne(req, res) {
   try {
-    const post = await Post.findById(req.params.postId);
+    const post = await Blog.findById(req.params.postId);
     res.status(200).json(post);
   } catch (err) {
     res.status(404).json({ err: err, status: "404" });
   }
-};
+}
 
-exports.deleteOnePost = async (req, res) => {
+export async function deleteOneBlog(req, res) {
   try {
-    const removedPost = await Post.remove({ _id: req.params.postId });
+    const removedBlog = await Blog.remove({ _id: req.params.postId });
 
-    res.status(200).json(removedPost);
+    res.status(200).json(removedBlog);
   } catch (err) {
     res
       .status(404)
       .json({ err: " the id of blog is  not found", status: "404" });
   }
-};
+}
 
-exports.UpdateOnePost = async (req, res) => {
+export async function UpdateOneBlog(req, res) {
   try {
     var id = req.params.postId;
-    const updatedBlog = await Post.findByIdAndUpdate({ _id: id }, req.body, {
+    const updatedBlog = await Blog.findByIdAndUpdate({ _id: id }, req.body, {
       new: true,
     });
     if (updatedBlog) {
@@ -67,4 +68,4 @@ exports.UpdateOnePost = async (req, res) => {
   } catch (error) {
     res.status(404).json({ status: "fail", message: error });
   }
-};
+}

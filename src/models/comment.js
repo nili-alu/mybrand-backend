@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 
-const commentSchema= mongoose.Schema({
+const commentSchema= Schema({
 
 
     message: {
@@ -16,4 +16,4 @@ const commentSchema= mongoose.Schema({
 });
 
 
-module.exports= mongoose.model('comment',commentSchema);
+export default model('comment',commentSchema);

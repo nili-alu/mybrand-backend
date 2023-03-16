@@ -1,8 +1,8 @@
 
 // user model
 // import mongoose from "mongoose";
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt')
+import mongoose, { model } from 'mongoose';
+import { compareSync } from 'bcrypt';
 const { Schema } = mongoose;
 
 
@@ -30,8 +30,8 @@ var UserSchema = new Schema({
 UserSchema.methods.comparePassword = function (password) {
   var user = this;
 
-  return bcrypt.compareSync(password, user.password);
+  return compareSync(password, user.password);
 };
 
 // return the model
-module.exports = mongoose.model("User", UserSchema);
+export default model("User", UserSchema);

@@ -1,8 +1,8 @@
 
 // user model
 // import mongoose from "mongoose";
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt')
+import mongoose, { model } from 'mongoose';
+import bcrypt from 'bcrypt';
 const { Schema } = mongoose;
 
 
@@ -28,4 +28,4 @@ var loginSchema = new Schema({
 
 
 // return the model
-module.exports = mongoose.model("User", loginSchema);
+export default model("User", loginSchema);

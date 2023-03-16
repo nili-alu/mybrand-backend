@@ -1,4 +1,4 @@
-{
+const swaggerDefinition ={
   "swagger": "2.0",
   "info": {
     "title": "My Brand API",
@@ -224,7 +224,7 @@
     }
   },
    
-"/post-comment": {
+"/comments/create": {
   "post": {
     "tags": ["comment"],
     "summary": "Create a a comment",
@@ -366,7 +366,7 @@
     },
 
       
-"/post-message": {
+"/messages/create": {
   "post": {
     "tags": ["Contact-me"],
     "summary": "Contact me",
@@ -522,7 +522,7 @@
     },
 
          
-"/post-user": {
+"/users/create": {
   "post": {
     "tags": ["Users"],
     "summary": "Sign up form",
@@ -633,6 +633,57 @@
     }
   }
 },
+"/users/update/{id}": {
+  "put": {
+    "tags": ["Users"],
+    "summary": "edit user's credential",
+    "description": "",
+    "produces": ["application/json"],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "description": "user id",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "in": "path",
+        "description": "new email",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "password",
+        "in": "formData",
+        "description": "new password",
+        "required": true,
+        "type": "string"
+      },
+    ],
+    "responses": {
+      "200": {
+        "description": "OK",
+        "schema": {
+          "$ref": ""
+        }
+      },
+      "401": {
+        "description": "Unauthorized",
+        "schema": {
+          "$ref": ""
+        }
+      },
+      "500": {
+        "description": "Internal Server Error",
+        "schema": {
+          "$ref": ""
+        }
+      }
+    }
+  }
+},
 "/users/delete/{id}": {
       "delete": {
         "tags": ["Users"],
@@ -674,7 +725,9 @@
 
 
   }
-}
+};
+
+export default swaggerDefinition;
  
 
 
