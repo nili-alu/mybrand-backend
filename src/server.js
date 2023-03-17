@@ -29,7 +29,7 @@ mongoose
   });
 
 
-//bpdy parser
+
 // Set up middleware
 app.use(morgan("dev"));
 app.use(bodyParser.json());
