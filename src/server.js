@@ -17,7 +17,7 @@ const app = express();
 // Connect to the database
 
 const dbURI ="mongodb+srv://LievinNili:lievin123@cluster0.wtd2hyd.mongodb.net/Portfolio?retryWrites=true&w=majority";
-const port = 4000;
+const port = process.env.PORT || 4000;
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
