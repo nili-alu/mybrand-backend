@@ -1,4 +1,4 @@
-import server from '../src/server.js'; 
+import server from '../server.js'; 
 import chaihttp from 'chai-http';
 import chai,{expect} from 'chai';
 
