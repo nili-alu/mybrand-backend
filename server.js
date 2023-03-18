@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import mongoose from "mongoose";
+import cors from "cors";
 
 import swaggerJSDoc from "swagger-jsdoc";
 import { serve, setup } from "swagger-ui-express";
@@ -13,6 +14,7 @@ import login from "./routes/authRoutes.js";
 
 //express app
 const app = express();
+app.use(cors() )
 
 const dbURI ="mongodb+srv://LievinNili:lievin123@cluster0.wtd2hyd.mongodb.net/Portfolio?retryWrites=true&w=majority";
 const port = process.env.PORT || 4000;
