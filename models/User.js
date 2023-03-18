@@ -1,13 +1,10 @@
-
 // user model
 // import mongoose from "mongoose";
-import mongoose, { model } from 'mongoose';
-import { compareSync } from 'bcrypt';
-const { Schema } = mongoose;
-
+import mongoose from "mongoose";
+import { compareSync } from "bcrypt";
 
 // user schema
-var UserSchema = new Schema({
+var UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "Email is required"],
@@ -34,4 +31,4 @@ UserSchema.methods.comparePassword = function (password) {
 };
 
 // return the model
-export default model("User", UserSchema);
+export default mongoose.model("User", UserSchema);

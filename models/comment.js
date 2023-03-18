@@ -1,14 +1,14 @@
-import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
 
 
-const commentSchema= Schema({
+const commentSchema= mongoose.Schema({
 
 
     message: {
         type:String,
         required:true
     },
- 
+
     date:{
         type:Date,
         default:Date.now
@@ -16,4 +16,4 @@ const commentSchema= Schema({
 });
 
 
-export default model('comment',commentSchema);
+export default mongoose.model("comment", commentSchema);
