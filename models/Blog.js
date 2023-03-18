@@ -1,22 +1,19 @@
 import { kMaxLength } from "buffer";
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 // const uploadImage = require('../uploadImage');
 
-const postSchema = Schema({
+const postSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
-    
   },
   description: {
     type: String,
     required: true,
-    
   },
   image: {
     type: String,
     required: true,
-   
   },
   date: {
     type: Date,
@@ -24,4 +21,4 @@ const postSchema = Schema({
   },
 });
 
-export default model("post", postSchema);
+export default mongoose.model("post", postSchema);
