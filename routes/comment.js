@@ -1,31 +1,16 @@
-const express= require('express');
-const router= express.Router();
-const Post_controller=require('../controllers/comment');
+import { Router } from "express";
+const router = Router();
+import {
+  allComment,
+  addComment,
+  getOneComment,
+  deleteOneComment,
+} from "../controllers/comment.js";
 
+// comment routers
+router.get("/comments", allComment);
+router.post("/comments/create", addComment);
+router.get("/comments/:postId", getOneComment);
+router.delete("/comments/delete/:postId", deleteOneComment);
 
-//get all comment
-router.get('/',Post_controller.allComment);
-
-
-
-//create a comment
-router.post('/createComment',Post_controller.addComment);
-
-//authentication
-// this is will replace the above line
-// router.post('/createComment',{name of login controller}, Post_controlrle.addComment);
-
-
-//get one by id or specific post
-router.get('/:postId', Post_controller.getOneComment);
-
-
- //delete
- router.delete('/:postId', Post_controller.deleteOneComment);
-
-
-//  //update a post
-//  router.patch('/:postId',Post_controller.UpdateOnePost);
- 
-
-module.exports = router;
+export default router;

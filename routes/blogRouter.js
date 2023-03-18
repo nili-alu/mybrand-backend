@@ -1,29 +1,27 @@
-const express= require('express');
-const router= express.Router();
-const Post= require('../models/blogModel');
-const Post_controller=require('../controllers/blogController');
-// const authenticate = require('../middlewares/authenticate');
+import { Router } from "express";
+const router = Router();
 
+import {
+  allBlog,
+  addBlog,
+  getOne,
+  deleteOneBlog,
+  UpdateOneBlog,
+} from "../controllers/blogController.js";
 
 //get all post
-router.get('/',Post_controller.allPost);
-
+router.get("/blogs", allBlog);
 
 //submit a post
-router.post('/createBlog',Post_controller.addPost);
-
+router.post("/blogs/create", addBlog);
 
 //get one by id or specific post
-router.get('/:postId', Post_controller.getOne);
+router.get("/blogs/:postId", getOne);
 
+//delete
+router.delete("/blogs/delete/:postId", deleteOneBlog);
 
- //delete
- router.delete('/:postId', Post_controller.deleteOnePost);
+//update a post
+router.put("/blogs/update/:postId", UpdateOneBlog);
 
-
- //update a post
- router.patch('/:postId',Post_controller.UpdateOnePost);
- 
-
-
-module.exports = router;
+export default router;
