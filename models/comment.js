@@ -3,7 +3,10 @@ import mongoose from 'mongoose';
 
 const commentSchema= mongoose.Schema({
 
-
+    email: {
+        type:String,
+        required:true
+    },
     message: {
         type:String,
         required:true

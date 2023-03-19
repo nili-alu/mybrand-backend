@@ -1,6 +1,4 @@
 import Post from "../models/comment.js";
-// import fs from "fs";
-// import { title } from "process";
 
 //get all comments
 export async function allComment(req, res) {
@@ -16,6 +14,7 @@ export async function allComment(req, res) {
 export async function addComment(req, res) {
   try {
     const post = new Post({
+      email: req.body.email,
       message: req.body.message,
     });
     const savedPost = await post.save();
@@ -43,30 +42,3 @@ export async function deleteOneComment(req, res) {
     res.status(404).json({ err: "comment id not found", status: "404" });
   }
 }
-
-// exports.UpdateOnePost = async (req, res) => {
-//   try {
-//     var id = req.params.postId;
-//     const updatedBlog = await Post.findByIdAndUpdate(
-//       { _id: id },
-//       req.body,
-//       {
-//         new: true,
-//       }
-//     );
-//     if (updatedBlog) {
-//       return res.status(200).json({
-//         message:"updated",
-//         data: updatedBlog
-//       })
-//     } else {
-//       return res.status(500).json({
-//         message:" this is not updated"
-
-//       })
-//     }
-//   } catch (error) {
-//     res.status(404).json({ status: "fail", message: error });
-
-//   }
-// };
