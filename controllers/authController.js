@@ -29,35 +29,3 @@ export async function login(req, res) {
     res.status(500).json({ message: "Internal server error" });
   }
 }
-
-// //get all users
-// exports.allUsers = async (req, res) => {
-//   try {
-//     const users = await User.find();
-//     res.status(200).json({"status":"succuss", "code":200, "message":"logged users",users});
-
-//   } catch (err) {
-//     res.status(404).json({ err: err , status:"404"});
-//   }
-// };
-
-// exports.getOneUser = async (req, res) => {
-//   try {
-//     const post = await User.findById(req.params.id);
-//     res.status(200).json({"status":"succuss", "code":200, post});
-
-//   } catch (err) {
-//     res.status(404).json({ "err": err,status:"404"});
-//   }
-// };
-
-// exports.deleteOneUser = async (req, res) => {
-//   try {
-//     const removedPost = await User.remove({ _id: req.params.id });
-
-//     res.status(200).json({"status":"succuss", "code":200, "message":"user removed successful"});
-
-//   } catch (err) {
-//     res.status(404).json({ err:"comment id not found",status:"404"});
-//   }
-// };
