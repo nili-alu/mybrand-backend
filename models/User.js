@@ -5,10 +5,14 @@ import { compareSync } from "bcrypt";
 
 // user schema
 var UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required:[true, "user name require"],
+  },
   email: {
     type: String,
     required: [true, "Email is required"],
-    unique: true,
+    
     match: [/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/, "Email is invalid"],
   },
   password: {

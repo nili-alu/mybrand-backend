@@ -4,7 +4,7 @@ import { hash } from "bcrypt";
 
 // Create a new user
 export async function createUser (req, res) {
-  const {email, password} = req.body;
+  const {name, email, password} = req.body;
 
   
   try {
@@ -13,7 +13,7 @@ export async function createUser (req, res) {
     }
 
     const hashedPassword = await hash(password, 10);
-    const user = await User.create({email, password:hashedPassword});
+    const user = await User.create({name, email, password:hashedPassword});
     res.status(200).json({"status":"succuss", "code":200, "message":"user created successful"});
 
     // await user.save();
