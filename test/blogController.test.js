@@ -111,51 +111,9 @@ describe("API", () => {
     });
   });
 
-  // //sign up, create user
-  
-  // describe("POST /users/create", () => {
-  //   it("should create a new user", (done) => {
-  //     const newUser = {
-  //       name:"name",
-  //       email:"new user",
-  //       password: "password",
-        
-  //     };
-  //     chai
-  //     .request(server)
-  //     .post('/api/users/create')
-  //     .send(newUser)
-  //     .end((err, res) =>{
-  //       expect(res).to.have.status(200)
-  //       expect(res.body).to.be.an("object");
-  //       expect(res.body).to.have.property('name').eql('name')
-  //       expect(res.body).to.have.property('email').eql('new user');
-  //       expect(res.body).to.have.property('password').eql('password');
-  //       newUser._id = res.body._id;
-  //      done(); 
-  //     })
-      
-  //   })  
-  // })
-
-  // // Test the GET /api/users route
-  // describe("GET /api/users", () => {
-  //   it("should return all users", (done) => {
-  //     chai
-  //       .request(server)
-  //       .get("/api/users")
-  //       .end((err, res) => {
-  //         expect(res).to.have.status(200);
-  //         //  console.log(res.body); 
-  //          done();
-  //       });
-      
-  //   });
-  // });
 
   // Test the GET /api/users/:id route
   describe("GET /api/users/:id", () => {
-
     it("should return a single user", (done) => {
       const userId = "64137aefa26a99b83f7cb79f";
       chai
@@ -165,29 +123,93 @@ describe("API", () => {
           expect(res).to.have.status(200);
           expect(res.body).to.be.an("object");
 
-          res.body['name'];
-          res.body['new user'];
-          res.body['password'];
+          res.body["name"];
+          res.body["new user"];
+          res.body["password"];
         });
       done();
     });
   });
 
-  // // Test the DELETE api/blogs/delete/:id route
+  // Test the DELETE api/users/delete/:id route
 
-  // describe("DELETE /api/blogs/delete/:id", () => {
+  describe("DELETE /api/users/delete/:id", () => {
+    it("should delete an user on with that id", (done) => {
+      const userIdToDelete = "64137aefa26a99b83f7cb79f";
+      chai
+        .request(server)
+        .delete(`/api/users/delete/${userIdToDelete}`)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+        });
+      done();
+    });
+  });
 
-  //   it("should delete an existing blog", (done) => {
-  //     const blogIdToDelete = "64137aefa26a99b83f7cb79f";
-  //     chai.request(server)
-  //       .delete(`/api/blogs/delete/${blogIdToDelete}`)
-  //       .end((err, res) => {
-  //         expect(res).to.have.status(200);
-  //       });
-  //     done();
-  //   });
-  // });
+  // Test the GET /api/comments/:id route
+  describe("GET /api/comments/:id", () => {
+    it("should return a single comments", (done) => {
+      const commentId = "64137aefa26a99b83f7cb79f";
+      chai
+        .request(server)
+        .get(`/api/comments/${commentId}`)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body).to.be.an("object");
 
+          res.body["name"];
+          res.body["description"];
+        });
+      done();
+    });
+  });
+
+  // Test the DELETE api/comments/delete/:id route
+
+  describe("DELETE /api/comments/delete/:id", () => {
+    it("should delete an existing comment", (done) => {
+      const commentId = "64137aefa26a99b83f7cb79f";
+      chai
+        .request(server)
+        .delete(`/api/comments/delete/${commentId}`)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+        });
+      done();
+    });
+  });
+
+  // Test the GET /api/message/:id route
+  describe("GET /api/messages/:id", () => {
+    it("should return a single message", (done) => {
+      const messageId = "64137aefa26a99b83f7cb79f";
+      chai
+        .request(server)
+        .get(`/api/messages/${messageId}`)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body).to.be.an("object");
+
+          res.body["niyo@gmail.com"];
+          res.body["test"];
+          res.body["test"];
+        });
+      done();
+    });
+  });
+
+  // Test the DELETE api/messages/delete/:id route
+
+  describe("DELETE /api/messages/delete/:id", () => {
+    it("should delete an existing message", (done) => {
+      const messageIdToDelete = "64137aefa26a99b83f7cb79f";
+      chai
+        .request(server)
+        .delete(`/api/messages/delete/${messageIdToDelete}`)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+        });
+      done();
+    });
+  });
 });
-
-

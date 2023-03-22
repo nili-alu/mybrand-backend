@@ -232,6 +232,13 @@ const swaggerDefinition ={
     "produces": ["application/json"],
     "parameters": [
       {
+        "name": "email",
+        "in": "formData",
+        "description": "your email",
+        "required": true,
+        "type": "string"
+      }, 
+      {
         "name": "message",
         "in": "formData",
         "description": "comment message here",
