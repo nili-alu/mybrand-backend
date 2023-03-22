@@ -6,7 +6,7 @@ import chai,{expect} from 'chai';
 chai.use(chaihttp)
 chai.should()
 
-describe("Blog API", () => {
+describe("API", () => {
   describe("POST /blogs/create", () => {
     it("should create a new blog", (done) => {
       const newBlog = {
@@ -110,6 +110,83 @@ describe("Blog API", () => {
       done();
     });
   });
+
+  // //sign up, create user
+  
+  // describe("POST /users/create", () => {
+  //   it("should create a new user", (done) => {
+  //     const newUser = {
+  //       name:"name",
+  //       email:"new user",
+  //       password: "password",
+        
+  //     };
+  //     chai
+  //     .request(server)
+  //     .post('/api/users/create')
+  //     .send(newUser)
+  //     .end((err, res) =>{
+  //       expect(res).to.have.status(200)
+  //       expect(res.body).to.be.an("object");
+  //       expect(res.body).to.have.property('name').eql('name')
+  //       expect(res.body).to.have.property('email').eql('new user');
+  //       expect(res.body).to.have.property('password').eql('password');
+  //       newUser._id = res.body._id;
+  //      done(); 
+  //     })
+      
+  //   })  
+  // })
+
+  // // Test the GET /api/users route
+  // describe("GET /api/users", () => {
+  //   it("should return all users", (done) => {
+  //     chai
+  //       .request(server)
+  //       .get("/api/users")
+  //       .end((err, res) => {
+  //         expect(res).to.have.status(200);
+  //         //  console.log(res.body); 
+  //          done();
+  //       });
+      
+  //   });
+  // });
+
+  // Test the GET /api/users/:id route
+  describe("GET /api/users/:id", () => {
+
+    it("should return a single user", (done) => {
+      const userId = "64137aefa26a99b83f7cb79f";
+      chai
+        .request(server)
+        .get(`/api/users/${userId}`)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body).to.be.an("object");
+
+          res.body['name'];
+          res.body['new user'];
+          res.body['password'];
+        });
+      done();
+    });
+  });
+
+  // // Test the DELETE api/blogs/delete/:id route
+
+  // describe("DELETE /api/blogs/delete/:id", () => {
+
+  //   it("should delete an existing blog", (done) => {
+  //     const blogIdToDelete = "64137aefa26a99b83f7cb79f";
+  //     chai.request(server)
+  //       .delete(`/api/blogs/delete/${blogIdToDelete}`)
+  //       .end((err, res) => {
+  //         expect(res).to.have.status(200);
+  //       });
+  //     done();
+  //   });
+  // });
 
 });
 
