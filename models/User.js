@@ -6,7 +6,8 @@ import { compareSync } from "bcrypt";
 // user schema
 var UserSchema = new mongoose.Schema({
   name: {
-    type: String
+    type: String,
+    required:[true, "user name require"],
   },
   email: {
     type: String,
