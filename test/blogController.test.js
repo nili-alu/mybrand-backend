@@ -179,6 +179,47 @@ describe("API", () => {
     });
   });
 
+  // describe("POST /messages/create", () => {
+  //   it("should send message", (done) => {
+  //     const newMessage = {
+  //       email:"niyo@gmail.com",
+  //       subject: "test",
+  //       message:"test"
+  //     };
+  //     chai
+  //     .request(server)
+  //     .post('/api/messages/create')
+  //     .send(newMessage)
+  //     .end((err, res) =>{
+  //       expect(res).to.have.status(200)
+  //       expect(res.body).to.be.an("object");
+  //       expect(res.body).to.have.property('email').eql('niyo@gmail.com');
+  //       expect(res.body).to.have.property('subject').eql('test');
+  //       expect(res.body).to.have.property('message').eql('test');
+        
+  //      done(); 
+  //     })
+      
+  //   })
+    
+
+    
+  // })
+  //  // Test the GET /api/blogs route
+  //  describe("GET /api/messages", () => {
+  //   it("should return all messages", (done) => {
+  //     chai
+  //       .request(server)
+  //       .get("/api/messages")
+  //       .end((err, res) => {
+  //         expect(res).to.have.status(200);
+  //         //  console.log(res.body); 
+  //          done();
+  //       });
+      
+  //   });
+  // });
+
   // Test the GET /api/message/:id route
   describe("GET /api/messages/:id", () => {
     it("should return a single message", (done) => {
