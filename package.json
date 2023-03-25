@@ -7,6 +7,7 @@
   "scripts": {
     "test": "mocha --timeout 50000 --exit ",
     "start": "node ./server.js",
+    "build": "npm install && echo 'Build successful'",
     "deploy": "npm install && npm run build && echo 'Deploy successful"
   },
   "keywords": [],
