@@ -6,7 +6,8 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha --timeout 50000 --exit ",
-    "start": "node ./server.js"
+    "start": "node ./server.js",
+    "deploy": "npm install && npm run build && echo 'Deploy successful"
   },
   "keywords": [],
   "author": "Lievin Niyoyandika",
