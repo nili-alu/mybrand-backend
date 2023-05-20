@@ -47,14 +47,6 @@
   },
   "jest": {
     "verbose": true
-  },
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lekipising/test-railway-deploy-node.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Lekipising/test-railway-deploy-node/issues"
-  },
-  "homepage": "https://github.com/Lekipising/test-railway-deploy-node#readme"
+  }
+  
 }
